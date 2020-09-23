@@ -5,16 +5,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #EAF5F5;
+  color:#508f8f;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-/*Header*/
 h1{
   font-size: 42px;
 }
+
+h2{
+  margin:0;
+}
+
+/*Header*/
 
 header{
   background-color: #78C7C7;
@@ -49,5 +56,111 @@ header{
   border:none;
   padding: 10px 20px;
   font-size: 24px;
+}
+
+
+/*Input Container*/
+form,
+.container{
+  text-align: center;
+  margin: 50px 0;
+  width: 90%;
+  margin: 0 5%;
+}
+
+.textContainer{
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.container img{
+  width: 300px;
+  border-radius: 50%;
+}
+
+input,
+select,
+button{
+ width: 230px;
+ padding: 10px 20px;
+ border:none;
+ border-radius :30px;
+}
+
+input {
+  width: 250px;
+  margin: 20px 5px;
+}
+
+input[type="file"]{
+  border-radius: 50%;
+  border:none;
+}
+
+link{
+  text-decoration: none;
+}
+
+.loginbtn{
+  margin: 10px -5px;
+}
+
+select{
+  margin-top: 20px;
+}
+
+button{
+  background-color:#7EDCDC;
+  color:white;
+  font-size:22px;
+}
+
+@media (min-width: 768px) {
+  .textContainer{
+    width: 500px;
+    margin:15px auto;
+  }
+}
+
+/*UsersView*/
+.flex{
+  display: flex;
+  width: 90%;
+  height:100% ;
+  border: 1px solid #ddd;
+  margin:30px auto;
+  padding: 10px;
+  text-align: left;
+  justify-content: space-around;
+  border-radius: 10px;
+  background-color: white;
+  transition: transform 0.5s;
+}
+
+.userDetail{
+  margin-left: 10px;
+}
+
+.flex img{
+  width: 80px;
+  border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+  .users{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .flex{
+    width: 40%;
+  }
+
+  .flex img{
+    margin-top:15px;
+  }
 }
 

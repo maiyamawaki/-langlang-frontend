@@ -4,7 +4,7 @@ import { Form, Input } from "antd"
 import { Context } from "../context"
 
 
-let baseURL
+let baseURL;
 
 process.env.NODE_ENV === "production"
   ? (baseURL = process.env.FRONTENDPOINT)

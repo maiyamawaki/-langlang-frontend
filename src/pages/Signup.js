@@ -15,6 +15,7 @@ const Signup = ({history}) => {
 	return (
 		<div>
 			<Form onFinish={signupProcess} form={form}>
+				<h1>Signup</h1>
 				<Form.Item label="Your email" name="email" rules={[{ required: true, message: "Plase input your email." }]}>
 					<Input />
 				</Form.Item>

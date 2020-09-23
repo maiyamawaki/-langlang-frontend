@@ -26,7 +26,7 @@ const Profile = () => {
 	}
 
 	return (
-		<div>
+		<div className="container">
 			<h1>Welcome {user?.name}</h1>
 			<img src={user?.photo} />
 			<br></br>
