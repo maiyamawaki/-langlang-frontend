@@ -65,7 +65,7 @@ form,
   text-align: center;
   margin: 50px 0;
   width: 90%;
-  margin: 0 5%;
+  margin: 50px 5%;
 }
 
 .textContainer{
@@ -76,8 +76,11 @@ form,
 }
 
 .container img{
-  width: 300px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
   border-radius: 50%;
+  margin-top: 30px;
 }
 
 input,
@@ -99,9 +102,11 @@ input[type="file"]{
   border:none;
 }
 
-link{
+link,
+a{
   text-decoration: none;
 }
+
 
 .loginbtn{
   margin: 10px -5px;
@@ -133,18 +138,21 @@ button{
   margin:30px auto;
   padding: 10px;
   text-align: left;
-  justify-content: space-around;
+  justify-content: space-between;
   border-radius: 10px;
   background-color: white;
   transition: transform 0.5s;
+  color:#508f8f;
 }
 
 .userDetail{
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .flex img{
   width: 80px;
+  height: 80px;
+  object-fit: cover;
   border-radius: 50%;
 }
 
@@ -162,5 +170,20 @@ button{
   .flex img{
     margin-top:15px;
   }
+}
+
+/*User detail*/
+.detail,
+.comment{
+  border:1px solid #eee;
+  padding:10px;
+  border-radius: 30px;
+  background-color:white;
+  margin: 50px auto;
+}
+
+.comment{
+  background-color: rgb(231, 114, 94);
+  color:white;
 }
 

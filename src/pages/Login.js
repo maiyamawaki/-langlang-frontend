@@ -1,8 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { login } from "../services"
 import { Form, Input } from "antd"
 import { Context } from "../context"
-
 
 let baseURL;
 
@@ -13,12 +12,10 @@ process.env.NODE_ENV === "production"
 
 const Login = ({history}) => {
 	const [form] = Form.useForm();
-	const { loginUser, user } = useContext(Context)
+	const { loginUser } = useContext(Context)
 
 	async function onFinish(values){
-		const {data : {user}} = await login(values).catch(err => {
-							console.dir(err.response.data.message)
-		})
+		const {data : {user}} = await login(values)
 		delete user.password;
 		loginUser(user)
 		history.push("/profile")

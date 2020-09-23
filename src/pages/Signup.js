@@ -1,8 +1,7 @@
 import React from 'react'
 import { signup } from "../services"
-import { Form, Input, Select } from "antd"
+import { Form, Input} from "antd"
 
-const {Option} = Select
 
 const Signup = ({history}) => {
 	const [form] = Form.useForm();
@@ -26,6 +25,7 @@ const Signup = ({history}) => {
 				<br></br>
 				<Form.Item label="Your native language" name="nativeLanguage" rules={[{ required: true, message: "Please select your native language" }]}>
 					<select name="nativeLanguage">
+							<option value="requires">Choose the language</option>
 							<option value="English">English</option>
 							<option value="Spanish">Spanish</option>
 							<option value="Japanese">Japanese</option>
@@ -39,6 +39,7 @@ const Signup = ({history}) => {
 				<br></br>
 				<Form.Item label="The language you want to learn" name="learnLanguage" rules={[{ required: true, message: "Please select the language you want to learn" }]}>
 					<select name="nativeLanguage">
+							<option value="requires">Choose the language</option>
 							<option value="English">English</option>
 							<option value="Spanish">Spanish</option>
 							<option value="Japanese">Japanese</option>
@@ -48,6 +49,10 @@ const Signup = ({history}) => {
 							<option value="Russian">Russian</option>
 							<option value="German">German</option>
 					</select>
+				</Form.Item>
+				<br></br>
+				<Form.Item label="Your hobby" name="hobby" rules={[{ required: true, message: "Please input your hobby" }]}>
+					<Input />
 				</Form.Item>
 				<br></br>
 				<Form.Item label="Password" name="password" rules={[{ required: true, message: "Please input your password" }]}>

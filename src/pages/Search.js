@@ -17,11 +17,10 @@ const Search = () => {
 
 	return users? (
 		<div>
-			<div className="users">
 				{users.map((ele, index)=>{
 					return(
 						<Link to={`/search/${ele._id}`}>
-							<div key={ele._id}>
+							<div className="flex" key={ele._id}>
 								<div>
 									<img src={ele.photo}></img>
 								</div>
@@ -34,7 +33,6 @@ const Search = () => {
 						</Link>
 					)
 				})}
-			</div>
 		</div>
 	):(
 		<h1>Loading</h1>

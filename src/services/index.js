@@ -39,5 +39,10 @@ export const getAllUsers = async() =>{
 
 //User Detail
 export const getOneUser = async (userId) => {
-  return await service.get(`/${userId}`)
+  return await service.get(`/search/${userId}`)
+}
+
+//Comment 
+export const createComment = async(userId, comment)=>{
+  await service.post(`/search/${userId}`, comment)
 }
