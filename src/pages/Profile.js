@@ -26,9 +26,8 @@ const Profile = ({history}) => {
 		history.push("/")
 	}
 
-	return (
+	return user ? (
 		<div className="container">
-			<p onClick={setLogout}>Logout</p>
 			<h1>Welcome {user?.name}</h1>
 			<img src={user?.photo} />
 			<br></br>
@@ -38,9 +37,31 @@ const Profile = ({history}) => {
 			<button>
 				<a href="/search">Search someone</a>
 			</button>
+			{user ? (
+				<div class="viewComments">
+					{user.comments.map((ele,index)=>{
+						return(
+							<div key={index} className="comment">
+							<Link to={`/search/${ele.ownerId}`}>
+								<p>From : {ele.owner}</p>
+								<hr></hr>
+								<h4>{ele.context}</h4>
+							</Link>
+							</div>
+						)
+					})}
+				</div>
+				):(
+					null
+				)}
+		</div>
+	):(
+		<div>
+			<h3>Please login...</h3>
 		</div>
 	)
 }
 
 export default Profile
+
 

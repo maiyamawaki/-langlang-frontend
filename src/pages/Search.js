@@ -16,9 +16,10 @@ const Search = () => {
 	},[])
 
 	return users? (
-		<div>
+		<div class="search">
 				{users.map((ele, index)=>{
 					return(
+					<div>
 						<Link to={`/search/${ele._id}`}>
 							<div className="flex" key={ele._id}>
 								<div>
@@ -31,6 +32,7 @@ const Search = () => {
 								</div>
 							</div>
 						</Link>
+					</div>
 					)
 				})}
 		</div>

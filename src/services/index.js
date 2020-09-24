@@ -46,3 +46,4 @@ export const getOneUser = async (userId) => {
 export const createComment = async(userId, comment)=>{
   await service.post(`/search/${userId}`, comment)
 }
+

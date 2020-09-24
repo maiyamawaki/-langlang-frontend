@@ -1,33 +1,26 @@
-import React,{useEffect, useState} from 'react'
-import { getOneUser, createComment} from "../services"
+import React, {useState,useEffect} from 'react'
+import {getOneUesrFromProfile, createComment} from "../services"
 import { Form } from "antd"
 
-
-const UserDetail = ({history, match : {params : {userId}}}) => {
-	const [form] = Form.useForm();
+const UserDetailForChat = ({match : {params : {id}}}) => {
 	const [oneUser, setOneUser] = useState(null)
-	
+	const [form] = Form.useForm();
+
 	async function sendComment (values){
-		const {data :{user}} = await getOneUser(userId)
+		const {data :{user}} = await getOneUesrFromProfile(id)
 		await createComment(user._id, values)
-		history.push("/search")
 	}
 
 	useEffect(()=>{
 		async function fetchOneUser(){
-			const {data : {user}} = await getOneUser(userId)
+			const {data : {user}} = await getOneUesrFromProfile(id)
 			setOneUser(user)
 		}
 		fetchOneUser()
 	},[])
-
-
-	return oneUser ? (
+	return  oneUser ? (
 		<div className="container detail">
-			<img src={oneUser.photo}></img>
 			<h1>{oneUser.name}</h1>
-			<p>Native language:{oneUser.nativeLanguage}</p>
-			<p>the language they want to learn:{oneUser.learnLanguage}</p>
 			<div class="comment">
 				<h3>Comment</h3>
 				<Form onFinish={sendComment} form={form}>
@@ -41,9 +34,12 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 				<a href="/search">Back</a>
 			</button>
 		</div>
-	):(
-		<h1>... espera</h1>
+	):
+	(
+		<div>
+			<h3>Loading...</h3>
+		</div>
 	)
 }
 
-export default UserDetail
+export default UserDetailForChat
