@@ -4,9 +4,10 @@ body {
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #c1f8f8;
-  color:#508f8f;
+  background-color: #85d1ba;
+  color:white;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 code {
@@ -18,16 +19,18 @@ h2{
 }
 
 a{
-  color:white;
+  color:white;;
   text-decoration: none;
 }
 
+hr{
+  color: white;
+}
 
 /*Header*/
 
 header{
-  background-color: #78C7C7;
-  color: white;
+  background-color: white;
   padding: 10px 5px;
   height:40px;
   line-height: 40px;
@@ -36,12 +39,14 @@ header{
 }
 
 header h1{
+  color: #72b4a0;
   margin: 0;
   font-size: 24px;
   font-weight: 700;
 }
 
 .links p{
+  color: white;
   display: inline;
   margin-right: 10px;
   font-weight: 600;
@@ -65,13 +70,21 @@ header h1{
 
 /*Home*/
 .home{
-  margin: 50px 60px;
   text-align:center;
-  color: #78C7C7;
+}
+
+.home img{
+  height: 350px;
+  width: 350px;
 }
 
 .homeText{
+  margin: 20px 30px;
+}
+
+.homeText h3{
   line-height: 30px;
+  text-align: left;
   margin-bottom:40px;
 }
 
@@ -92,9 +105,10 @@ header h1{
   font-size: 24px;
 }
 
+
+
 /*Profile*/
 .comment{
-  background-color: white;
   padding:10px;
   width: 80%;
   margin: 10px auto;
@@ -210,7 +224,7 @@ button{
   justify-content: space-between;
   border-radius: 10px;
   background-color: white;
-  color:#508f8f;
+  color:white;
 }
 
 .userDetail{
@@ -256,7 +270,11 @@ button{
 }
 
 .comment{
-  background-color: rgb(231, 114, 94);
+  background-color: white;
   color:white;
 }
 
+.comment p,
+.comment h4{
+  color: #85d1ba;
+}

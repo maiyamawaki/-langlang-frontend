@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import axios from "axios"
 import { Context } from "../context"
 import { Link } from 'react-router-dom';
-import {getCurrentUser, logoutP, updateProfilePhoto} from "../services/index"
+import {getCurrentUser, logoutP, updateProfilePhoto} from "../services"
 
 const Profile = ({history}) => {
 	const { user, loginUser, logout } = useContext(Context)
@@ -43,7 +43,7 @@ const Profile = ({history}) => {
 						return(
 							<div key={index} className="comment">
 							<Link to={`/search/${ele.ownerId}`}>
-								<p>From : {ele.owner}</p>
+								<p>From : {ele.owner}     {ele.createdAt}</p>
 								<hr></hr>
 								<h4>{ele.context}</h4>
 							</Link>
