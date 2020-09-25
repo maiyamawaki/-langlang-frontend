@@ -23,6 +23,14 @@ const Signup = ({history}) => {
           <Input />
         </Form.Item>
         <br></br>
+        <Form.Item label="From" name="from" rules={[{ required: true, message: "Please input the country where are you from" }]}>
+          <Input />
+        </Form.Item>
+        <br></br>
+        <Form.Item label="Living" name="living" rules={[{ required: true, message: "Please input the country where you are" }]}>
+          <Input />
+        </Form.Item>
+        <br></br>
         <Form.Item label="Your native language" name="nativeLanguage" rules={[{ required: true, message: "Please select your native language" }]}>
           <select name="nativeLanguage">
               <option value="requires">Choose the language</option>
@@ -31,7 +39,11 @@ const Signup = ({history}) => {
               <option value="Japanese">Japanese</option>
               <option value="Chinese">Chinese</option>
               <option value="French">French</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Portuguese">Portuguese</option>
               <option value="Italian">Italian</option>
+              <option value="Arabic">Arabic</option>
+              <option value="Bengali">Bengali</option>
               <option value="Russian">Russian</option>
               <option value="German">German</option>
           </select>

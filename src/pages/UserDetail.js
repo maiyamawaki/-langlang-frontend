@@ -1,16 +1,17 @@
 import React,{useEffect, useState} from 'react'
 import { getOneUser, createComment} from "../services"
-import { Form } from "antd"
 
 
 const UserDetail = ({history, match : {params : {userId}}}) => {
-	const [form] = Form.useForm();
 	const [oneUser, setOneUser] = useState(null)
+	const [context, setcontext] = useState("")
 	
-	async function sendComment (values){
+	async function sendComment (){
+		alert("The message has been sent")
+		const newComment = {context}
 		const {data :{user}} = await getOneUser(userId)
-		await createComment(user._id, values)
-		history.push("/search")
+		await createComment(user._id, newComment)
+		setcontext("")
 	}
 
 	useEffect(()=>{
@@ -23,19 +24,38 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 
 
 	return oneUser ? (
-		<div className="container detail">
-			<img src={oneUser.photo}></img>
-			<h1>{oneUser.name}</h1>
-			<p>Native language:{oneUser.nativeLanguage}</p>
-			<p>the language they want to learn:{oneUser.learnLanguage}</p>
-			<div class="comment">
-				<h3>Send message</h3>
-				<Form onFinish={sendComment} form={form}>
-					<Form.Item label="Context" name="context" rules={[{ required: true, message: "Plase input comment" }]}>
-						<input className="input"/>
-					</Form.Item>
-					<button type="submit">Send</button>
-				</Form>
+		<div className="container">
+			<div className="aboutUser">
+				<div>
+					<img src={oneUser.photo}></img>
+					<h1>{oneUser.name}</h1>
+					<p>From : {oneUser.from}</p>
+					<p>Native language:{oneUser.nativeLanguage}</p>
+					<p>language to learn:{oneUser.learnLanguage}</p>
+					<p>Hobby : {oneUser.hobby}</p>
+				</div>
+				<div class="comment">
+					<form onSubmit={sendComment}>
+						<h2>Send message..</h2>
+						<label>Title</label>
+						<br></br>
+						<input required type="text" name="context" value={context}onChange={e=>setcontext(e.target.value)} />
+						<br></br>
+						<button type="submit">Send</button>
+					</form>
+				</div>
+			</div>
+			<div className="userInfos">
+				{oneUser.infos.map((ele)=>{
+					return(
+							<div className="infos card">
+									<h3>{ele.title}</h3>
+									<hr></hr>
+									<img src={ele.photo}></img>
+									<p>{ele.description}</p>
+							</div>
+					)
+				})}
 			</div>
 		</div>
 	):(

@@ -1,16 +1,25 @@
 import React, {useContext, useState} from 'react'
-import axios from "axios"
 import { Context } from "../context"
-import {getCurrentUser, updatePhoto, editProfile} from "../services"
+import {Link} from "react-router-dom"
+import {getCurrentUser, updatePhoto, updateProfile} from "../services"
+import axios from "axios"
 
 
-const EditProfile = () => {
+const EditProfile = ({history}) => {
 	const { user, loginUser } = useContext(Context)
-	const [laernLang, setLearnLang] = useState("")
-	const [photo, setPhoto] = useState("")
+	const [learnLanguage, setlearnLanguage] = useState("")
 	const [hobby, sethobby] = useState("")
-	const [updateduser, setUpdatedUser] = useState(user)
+	const [about, setabout] = useState("")
 	
+	console.log(user)
+
+	async function realizeUpdateProfile(){
+		const newPro = {learnLanguage, hobby, about}
+		await updateProfile(newPro)
+		console.log(newPro)
+		history.push("/profile")
+	}
+
 	async function uploadPhoto(e) {
 		const data = new FormData()
 		data.append("file", e.target.files[0])
@@ -25,15 +34,26 @@ const EditProfile = () => {
 		}
 
 	return (
-		<div>
-				<label>Your photo</label>
-				<br></br>
-				<input type='file' name='photo' id='photo' onChange={uploadPhoto} />
+		<div className="updateProfile">
+				<h1>Edit profile</h1>
+				<input className="file" type='file' name='photo' id='photo' onChange={uploadPhoto} />
+			<form className="editForm" onSubmit={realizeUpdateProfile}>
 				<br></br>
 				<label>langueage</label>
-				<input required type="text" name="laernLang" value={laernLang}onChange={e=>setLearnLang(e.target.value)} />
-				<button type="submit">Edit</button>
-
+				<br></br>
+				<input required type="text" name="learnLanguage" value={learnLanguage}onChange={e=>setlearnLanguage(e.target.value)} />
+				<br></br>
+				<label>Hobby</label>
+				<br></br>
+				<textarea required type="text" name="hobby" value={hobby}onChange={e=>sethobby(e.target.value)} />
+				<br></br>
+				<br></br>
+				<label>About</label>
+				<br></br>
+				<textarea required type="text" name="about" value={about}onChange={e=>setabout(e.target.value)} />
+				<br></br>
+				<button className="whiteBtn" type="submit">Edit</button>
+			</form>
 		</div>
 	)
 }

@@ -110,7 +110,7 @@ header h1{
   display: inline-block;
   width: 280px;
   margin: 15px auto;
-  background-color: #139b9b;
+  background-color: #85d1ba;
   border-radius: 30px;
   border:none;
   padding: 10px 20px;
@@ -170,6 +170,30 @@ header h1{
   margin:30px;
 }
 
+.profileDetail{
+  background-color: white;
+  width: 100%;
+  border-radius: 30px;
+}
+
+.profileDetail p{
+  color:#333;
+  text-align: left;
+  margin: 0 20px;
+}
+
+.userInfo{
+  line-height: 25px;
+}
+
+@media (min-width: 768px) {
+  .userInfo{
+    width: 40%;
+    margin: 0 auto;
+  }
+}
+
+
 @media (min-width: 768px) {
   .viewComments{
     display: flex;
@@ -191,6 +215,10 @@ form,
   width: 90%;
   margin: 50px 5%;
   color: #72b4a0;
+}
+
+.editForm{
+  margin-top:0;
 }
 
 .detail p{
@@ -227,7 +255,7 @@ button{
 }
 
 .input{
-  border:1px solid #139b9b;
+  border:1px solid #85d1ba;
   width: 180px;
 }
 
@@ -238,8 +266,10 @@ input {
 }
 
 input[type="file"]{
+  display: block;
   border-radius: 50%;
   border:none;
+  margin: 10px auto 0 auto;
 }
 
 select{
@@ -344,11 +374,7 @@ select{
   border-radius: 30px;
   background-color:white;
   margin: 50px auto;
-}
-
-.comment{
-  background-color: white;
-  color:white;
+  color:#333;
 }
 
 .comment p,
@@ -356,7 +382,106 @@ select{
   color: #85d1ba;
 }
 
+.comment input{
+  width: 190px;
+}
+
+.card img{
+  border-radius: 0;
+}
+
+
+@media (min-width: 768px) {
+  .detail{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .comment{
+    margin:0 0 10px;
+    width: 30%;
+  }
+
+  .aboutUser{
+    display: flex;
+    width: 80%;
+    margin : 0 auto;
+    justify-content: space-around;
+  }
+
+  .aboutUser .comment{
+    width: 50%;
+    margin-top: 30px;
+  }
+
+  .card img{
+    border-radius: 0;
+  }
+
+  .userInfos{
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+    .userInfos .infos{
+      width: 30%;
+    }
+}
+
 /*search*/
 .search img{
   margin-top: 20px;
+}
+
+/*info*/
+.info input{
+  width: 220px;
+}
+
+.info label{
+  font-size: 18px;
+}
+
+.info h1{
+  color:white;
+  margin-bottom: 20px;
+}
+
+.infos{
+  width: 90%;
+  margin: 10px auto;
+  background-color: white;
+  color:#333;
+  padding: 10px 10px;
+}
+
+.infos p{
+  color: #333;
+  margin: 0 5px;
+}
+
+.infos h3{
+  text-align: center;
+}
+
+.infos img{
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .infoCards{
+    display: flex;
+    flex-wrap:wrap;
+    height: 100%;
+    
+  }
+
+  .infos{
+    width: 30%;
+  }
+}
+
+/*Edit Profile*/
+.updateProfile{
+  text-align: center;
 }

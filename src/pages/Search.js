@@ -31,8 +31,9 @@ const Search = () => {
 										</div>
 										<div className="userDetail">
 											<h2>{ele.name}</h2>
+											<p>From : {ele.from}</p>
 											<p>Native language:{ele.nativeLanguage}</p>
-											<p>the language they want to learn:{ele.learnLanguage}</p>
+											<p>Learning : {ele.learnLanguage}</p>
 										</div>
 									</div>
 								</Link>

@@ -18,6 +18,7 @@ const UserDetailForChat = ({match : {params : {id}}}) => {
 		}
 		fetchOneUser()
 	},[])
+	
 	return  oneUser ? (
 		<div className="container detail">
 			<h1>{oneUser.name}</h1>

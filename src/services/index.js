@@ -31,9 +31,11 @@ export const updatePhoto = async photo => {
   await service.put("/photo", {photo})
 }
 
-export const editProfile = async () =>{
-  await service.put("/profile/editProfile")
+export const updateProfile = async (newPro) =>{
+  await service.put("/profile/editProfile", newPro)
 }
+
+
 //View All users
 export const getAllUsers = async() =>{
   return await service.get("/search")
@@ -43,9 +45,13 @@ export const getOneUser = async (userId) => {
   return await service.get(`/search/${userId}`)
 }
 
+
 //Comment 
 export const createComment = async(userId, comment)=>{
   await service.post(`/search/${userId}`, comment)
+}
+export const deleteComment = async(messageId)=>{
+  await service.delete("/profile", {messageId})
 }
 
 //Info
