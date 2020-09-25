@@ -5,7 +5,7 @@ import { Context } from "../context"
 
 const Search = () => {
 	const [users, setUsers] = useState(null);
-	const { user, loginUser, logout } = useContext(Context)
+	const { user, loginUser } = useContext(Context)
 
 	useEffect(()=>{
 		async function fetchUsers(){

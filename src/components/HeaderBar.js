@@ -8,7 +8,6 @@ const HeaderBar = ({history}) => {
 	async function checkAuth(){
 		const { user } = await getCurrentUser()
 		loginUser(user)
-		console.log(user)
 	}
 
 	useEffect(()=>{
@@ -23,7 +22,7 @@ const HeaderBar = ({history}) => {
 	return user ? (
 				<header>
 					<a href="/search"><h1>langlang</h1></a>	
-					<div class="links">
+					<div className="links">
 					<p onClick={setLogout}><a href="/">Logout</a></p>
 					<p><a href="/profile">Profile</a></p>
 					</div>
@@ -32,7 +31,7 @@ const HeaderBar = ({history}) => {
 			(
 				<header>
 						<a href="/"><h1>langlang</h1></a>	
-						<div class="links">
+						<div className="links">
 						<p><a href="/signup">Signup</a></p>
 						<p><a href="/login">Login</a></p>
 						</div>

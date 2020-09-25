@@ -37,9 +37,6 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 					<button type="submit">Send</button>
 				</Form>
 			</div>
-			<button>
-				<a href="/search">Back</a>
-			</button>
 		</div>
 	):(
 		<h1>... espera</h1>

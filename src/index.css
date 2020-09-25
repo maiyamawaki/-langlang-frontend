@@ -18,9 +18,21 @@ h2{
   margin:0;
 }
 
+h1{
+  color: white;
+}
+
 a{
-  color:white;;
+  color: #72b4a0;
   text-decoration: none;
+}
+
+p{
+  color:white;
+}
+
+label{
+  color:white;
 }
 
 hr{
@@ -98,14 +110,39 @@ header h1{
   display: inline-block;
   width: 200px;
   margin: 15px 10px;
-  background-color: #7EDCDC;
+  background-color: #139b9b;
   border-radius: 30px;
   border:none;
   padding: 10px 20px;
   font-size: 24px;
 }
 
+@media (min-width: 768px) {
+  .home{
+    text-align:left;
+    display: flex;
+    justify-content: center;
+  }
 
+  .home .btn{
+    text-align: center;
+  }
+  
+  .homeText{
+    width: 40%;
+    margin:100px 0 0 100px;
+  }
+
+  .homeImg{
+    width: 50%;
+  }
+
+  .home img{
+    width: 550px;
+    height: 550px;
+    margin: 30px;
+  }
+}
 
 /*Profile*/
 .comment{
@@ -145,6 +182,11 @@ form,
   margin: 50px 0;
   width: 90%;
   margin: 50px 5%;
+  color: #72b4a0;
+}
+
+.detail p{
+  color: #139b9b;
 }
 
 .textContainer{
@@ -162,18 +204,24 @@ form,
   margin-top: 30px;
 }
 
+.container h3{
+  color: #72b4a0;
+}
+
 input,
 select,
+textarea,
 button{
  width: 230px;
  padding: 10px 20px;
- border:none;
+ border: none;
  border-radius :30px;
 }
 
 input {
-  width: 250px;
+  width: 190px;
   margin: 20px 5px;
+  border:1px solid #72b4a0;
 }
 
 input[type="file"]{
@@ -199,10 +247,14 @@ select{
   margin-top: 20px;
 }
 
-button{
+.container button{
   background-color:#7EDCDC;
   color:white;
   font-size:22px;
+}
+
+.container a{
+  color:white;
 }
 
 @media (min-width: 768px) {
@@ -224,11 +276,15 @@ button{
   justify-content: space-between;
   border-radius: 10px;
   background-color: white;
-  color:white;
+  color:#85d1ba;
 }
 
 .userDetail{
   margin-left: 30px;
+}
+
+.userDetail p{
+  color: #85d1ba;
 }
 
 .flex img{

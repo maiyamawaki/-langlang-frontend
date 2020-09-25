@@ -12,9 +12,7 @@ function Home() {
         <Link className="signup btn" to="/signup">Signup</Link>  
         <Link className="login btn" to="/login">Login</Link>
       </div>
-      <div>
         <img src="/main.png"></img>
-      </div>
     </div>
   );
 }

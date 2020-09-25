@@ -2,29 +2,23 @@ import React, {useContext} from 'react'
 import axios from "axios"
 import { Context } from "../context"
 import { Link } from 'react-router-dom';
-import {getCurrentUser, logoutP, updateProfilePhoto} from "../services"
+import {getCurrentUser, updatePhoto} from "../services"
 
-const Profile = ({history}) => {
-	const { user, loginUser, logout } = useContext(Context)
+const Profile = () => {
+	const { user, loginUser } = useContext(Context)
 
-		async function uploadPhoto({target : {files}}) {
+		async function uploadPhoto(e) {
 			const data = new FormData()
-			data.append("file", files[0])
-			data.append("upload_present", "langlang")
+			data.append("file", e.target.files[0])
+			data.append("upload_preset", "langlang")
 
 			const {
 					data: { secure_url }
 			} = await axios.post("https://api.cloudinary.com/v1_1/dxpxe8gus/image/upload", data)
-			updateProfilePhoto(secure_url)
+			await updatePhoto(secure_url)
 			const { user } = await getCurrentUser()
 			loginUser(user)
-	}
-
-	async function setLogout() {
-		await logoutP()
-		logout()	
-		history.push("/")
-	}
+			}
 
 	return user ? (
 		<div className="container">
@@ -37,15 +31,22 @@ const Profile = ({history}) => {
 			<button>
 				<a href="/search">Search someone</a>
 			</button>
+			<button>
+				<Link to="/profile/info">Info</Link>
+			</button>
 			{user ? (
-				<div class="viewComments">
+				<div className="viewComments">
 					{user.comments.map((ele,index)=>{
 						return(
 							<div key={index} className="comment">
-							<Link to={`/search/${ele.ownerId}`}>
 								<p>From : {ele.owner}     {ele.createdAt}</p>
 								<hr></hr>
 								<h4>{ele.context}</h4>
+							{/* <button>Delete comment</button> */}
+							<br></br>
+							<br></br>
+							<Link to={`/search/${ele.ownerId}`}>
+							<button>Respond</button>
 							</Link>
 							</div>
 						)
