@@ -29,10 +29,10 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 			<p>Native language:{oneUser.nativeLanguage}</p>
 			<p>the language they want to learn:{oneUser.learnLanguage}</p>
 			<div class="comment">
-				<h3>Comment</h3>
+				<h3>Send message</h3>
 				<Form onFinish={sendComment} form={form}>
 					<Form.Item label="Context" name="context" rules={[{ required: true, message: "Plase input comment" }]}>
-						<input />
+						<input className="input"/>
 					</Form.Item>
 					<button type="submit">Send</button>
 				</Form>

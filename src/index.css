@@ -108,8 +108,8 @@ header h1{
 
 .btn{
   display: inline-block;
-  width: 200px;
-  margin: 15px 10px;
+  width: 280px;
+  margin: 15px auto;
   background-color: #139b9b;
   border-radius: 30px;
   border:none;
@@ -124,13 +124,17 @@ header h1{
     justify-content: center;
   }
 
-  .home .btn{
+  .home h1{
+    font-size:50px;
+  }
+
+  .home .btn{ 
     text-align: center;
   }
   
   .homeText{
     width: 40%;
-    margin:100px 0 0 100px;
+    margin: 100px 0 150px 0;
   }
 
   .homeImg{
@@ -140,7 +144,11 @@ header h1{
   .home img{
     width: 550px;
     height: 550px;
-    margin: 30px;
+    margin-top: 60px;
+  }
+
+  .btn{
+    width: 400px;
   }
 }
 
@@ -218,8 +226,13 @@ button{
  border-radius :30px;
 }
 
+.input{
+  border:1px solid #139b9b;
+  width: 180px;
+}
+
 input {
-  width: 190px;
+  width: 250px;
   margin: 20px 5px;
   border:1px solid #72b4a0;
 }
@@ -257,10 +270,18 @@ select{
   color:white;
 }
 
+#password{
+  margin-left: 20px;
+}
+
 @media (min-width: 768px) {
   .textContainer{
     width: 500px;
     margin:15px auto;
+  }
+
+  #password{
+    margin-left: 28px;
   }
 }
 
@@ -333,4 +354,9 @@ select{
 .comment p,
 .comment h4{
   color: #85d1ba;
+}
+
+/*search*/
+.search img{
+  margin-top: 20px;
 }

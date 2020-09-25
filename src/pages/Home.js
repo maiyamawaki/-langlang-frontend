@@ -5,12 +5,14 @@ function Home() {
   return (
     <div className="home">
       <div className="homeText">
-        <h3>Are you looking for someone <br />to practice the language you learn?
+        <h1>
+        Learn the language, <br></br>
+        discover the world <br></br>
+        in the smartest way.</h1>
         <br />
-        <h2>Just sign up!</h2>
-        Use langlang to find someone suitable for you !</h3>
-        <Link className="signup btn" to="/signup">Signup</Link>  
-        <Link className="login btn" to="/login">Login</Link>
+          <Link className="signup btn" to="/signup">Signup</Link>
+          <br></br>  
+          <Link className="login btn" to="/login">Login</Link>
       </div>
         <img src="/main.png"></img>
     </div>

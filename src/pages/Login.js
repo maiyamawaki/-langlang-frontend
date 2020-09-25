@@ -31,7 +31,7 @@ const Login = ({history}) => {
 				<Form.Item label="Password" name="password" rules={[{ required: true, message: "Plase input your password." }]}>
 					<Input.Password />
 				</Form.Item>
-				<button htmlType='submit'>Login</button>
+				<button className="btn signup" htmlType='submit'>Login</button>
 			</Form>
 		</div>
 	)

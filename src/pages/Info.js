@@ -16,7 +16,7 @@ const Info = ({history}) => {
 	async function createNewInfo(){
 		const newInfo = {title,photo,description}
 		createInfo(newInfo)
-		history.pushState("/profile")
+		history.push("/profile")
 	}
 
 	async function uploadPhoto({ target: { files } }) {
@@ -49,15 +49,14 @@ const Info = ({history}) => {
 				<button type="submit">Create</button>
 			</form>
 			<div>
-					{user.infos.map((ele)=>{
-						return(
-							<div key={ele._id}>
-								<h3>{ele.title}</h3>
-								<img src={ele.photo}></img>
-								<p>{ele.description}</p>
-								<Link to={`/profile/info/${ele._id}`}>Edit information</Link>
-							</div>
-						)
+				{user.infos.map((ele)=>{
+					return(
+						<div>
+							<h3>{ele.title}</h3>
+							<img src={ele.photo}></img>
+							<p>{ele.description}</p>
+						</div>
+					)
 				})}
 			</div>
 		</div>
