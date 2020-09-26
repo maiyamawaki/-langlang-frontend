@@ -10,6 +10,7 @@ const Profile = ({history}) => {
 	async function deleteOne(id){
 			alert("The messsage has been deleted.")
 			const messageId = id
+			console.log(messageId)
 			await deleteComment(messageId)
 			history.push("/search")
 	}
@@ -47,12 +48,13 @@ const Profile = ({history}) => {
 								<p>{ele.createdAt}</p>
 								<hr></hr>
 								<h4>{ele.context}</h4>
+								<h4>{ele._id}</h4>
 								<Link to={`/search/${ele.ownerId}`}>
 								<button>Respond</button>
 								</Link>
 								<br></br>
 								<br></br>
-									<button onClick={()=>{deleteOne(ele._id)}}>Delete</button>
+									<button onClick={()=>{deleteOne(`${ele._id}`)}}>Delete</button>
 							</div>
 						)
 					})}
