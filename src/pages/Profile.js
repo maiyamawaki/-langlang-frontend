@@ -7,13 +7,16 @@ import { deleteComment } from "../services"
 const Profile = ({history}) => {
 	const { user } = useContext(Context)
 
-	async function deleteOne(id){
-			alert("The messsage has been deleted.")
-			const messageId = id
-			console.log(messageId)
-			await deleteComment(messageId)
-			history.push("/search")
-	}
+	// async function deleteOne(messageId){
+	// 		alert("The messsage has been deleted.")
+	// 		// console.log(id)
+	// 		// let messageId = id
+	// 		// console.log(messageId)
+	// 		// await deleteComment(messageId)
+	// 		// history.push("/search")
+	// 		const deleteMsg = await deleteComment(messageId);
+	// 		console.log(deleteMsg);
+	// }
 	
 	return user ? (
 		<div className="container">
@@ -36,10 +39,12 @@ const Profile = ({history}) => {
 
 				<Link className="btn login" to="/search">Search someone</Link>
 				<br></br>
+				<Link className="btn login" to="/profile/msgs">Check messsages</Link>
+				<br></br>
 				<Link className="btn login" to="/profile/info">Info</Link>
 			</div>
 			<br></br>
-			{user ? (
+			{/* {user ? (
 				<div className="viewComments">
 					{user.comments.map((ele,index, arr)=>{
 						return(
@@ -48,7 +53,6 @@ const Profile = ({history}) => {
 								<p>{ele.createdAt}</p>
 								<hr></hr>
 								<h4>{ele.context}</h4>
-								<h4>{ele._id}</h4>
 								<Link to={`/search/${ele.ownerId}`}>
 								<button>Respond</button>
 								</Link>
@@ -61,7 +65,7 @@ const Profile = ({history}) => {
 				</div>
 				):(
 					null
-				)}
+				)} */}
 		</div>
 	):(
 		<div>

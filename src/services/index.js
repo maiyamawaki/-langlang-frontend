@@ -50,8 +50,12 @@ export const getOneUser = async (userId) => {
 export const createComment = async(userId, comment)=>{
   await service.post(`/search/${userId}`, comment)
 }
-export const deleteComment = async(messageId)=>{
-  await service.delete("/profile", {messageId})
+export const getMsg = async(msgId)=>{
+  const {data : msg}= await service.get(`/msgs/${msgId}`)
+  return msg
+}
+export const deleteComment = async(msgId)=>{
+  await service.delete(`/msgs/${msgId}`)
 }
 
 //Info
