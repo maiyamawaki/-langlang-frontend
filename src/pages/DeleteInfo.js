@@ -7,7 +7,7 @@ const DeleteInfo = ({history, match : {params : {infoId}}}) => {
 	async function deleteOneInfo(infoId){
 		const info = await deleteInfo(infoId)
 		console.log(info)
-		history.push("/profile")
+		history.push("/search")
 	}
 
 	useEffect(()=>{
@@ -21,7 +21,9 @@ const DeleteInfo = ({history, match : {params : {infoId}}}) => {
 	return oneInfo?(
 		<div className="confirm">
 			<h2>Are you sure to delete this information ? </h2>
+			<br></br>
 			<button className="delete" onClick={()=>{deleteOneInfo(`${oneInfo._id}`)}}>Delete</button>
+			<a className="backBtn" href="/profile">Back</a>
 		</div>
 	):(
 		null

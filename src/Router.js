@@ -13,6 +13,7 @@ import Info from "./pages/Info"
 import DeleteInfo from "./pages/DeleteInfo"
 import Material from "./pages/Material"
 import DeleteMaterial from "./pages/DeleteMaterial"
+import Loading from "./pages/Loading"
 import NotFound from './components/404/NotFound.js';
 
 
@@ -24,6 +25,7 @@ const Router = () => (
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/profile" component={Profile} />
+      <Route exact path="/loading" component={Loading} />
       <Route exact path="/profile/editProfile" component={EditProfile} />
       <Route exact path="/search" component={Search} />
       <Route exact path="/profile/msgs" component={Msgs} />

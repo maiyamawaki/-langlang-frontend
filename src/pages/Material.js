@@ -14,7 +14,7 @@ const Material = ({history}) => {
 	async function createNewMaterial(){
 		const newMaterial = {title,photo,description}
 		createMaterial(newMaterial)
-		history.push("/profile")
+		history.push("/loading")
 	}
 
 	async function uploadPhoto({ target: { files } }) {
@@ -48,6 +48,8 @@ const Material = ({history}) => {
 				<input required type="text" name="description" value={description}onChange={e=>setDescription(e.target.value)} />
 				<br></br>
 				<button className="submitBtn" type="submit">Create</button>
+				<br></br>
+				<a className="btn" href="/profile">Profile</a>
 			</form>
 			<div className="infoCards">
 				{user.materials.map((ele)=>{
@@ -56,6 +58,7 @@ const Material = ({history}) => {
 							<h3>{ele.title}</h3>
 							<img src={ele.photo}></img>
 							<p>{ele.description}</p>
+							<br></br>
 							<Link className="delete" to={`/material/${ele._id}`}>Delete</Link>
 						</div>
 					)

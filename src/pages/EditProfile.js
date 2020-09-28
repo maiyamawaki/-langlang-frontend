@@ -13,7 +13,7 @@ const EditProfile = ({history}) => {
 	async function realizeUpdateProfile(){
 		const newPro = {learnLanguage, hobby, about}
 		await updateProfile(newPro)
-		history.push("/profile")
+		history.push("/loading")
 	}
 
 	async function uploadPhoto(e) {
@@ -31,24 +31,28 @@ const EditProfile = ({history}) => {
 
 	return (
 		<div className="updateProfile">
-				<h1>Edit profile</h1>
 			<form className="editForm" onSubmit={realizeUpdateProfile}>
-				<input className="file" type='file' name='photo' id='photo' onChange={uploadPhoto} />
+				<h1>Edit profile</h1>
+				<label for="file_photo">
+				<input style={{display:"none"}} id="file_photo" required type="file" name="photo" onChange={uploadPhoto} />
+				photo 
+				</label>
 				<br></br>
 				<label>langueage</label>
 				<br></br>
 				<input required type="text" name="learnLanguage" value={learnLanguage}onChange={e=>setlearnLanguage(e.target.value)} />
 				<br></br>
+				<br></br>
 				<label>Hobby</label>
 				<br></br>
-				<textarea required type="text" name="hobby" value={hobby}onChange={e=>sethobby(e.target.value)} />
+				<input required type="text" name="hobby" value={hobby}onChange={e=>sethobby(e.target.value)} />
 				<br></br>
 				<br></br>
 				<label>About</label>
 				<br></br>
-				<textarea required type="text" name="about" value={about}onChange={e=>setabout(e.target.value)} />
+				<input required type="text" name="about" value={about}onChange={e=>setabout(e.target.value)} />
 				<br></br>
-				<button className="whiteBtn" type="submit">Edit</button>
+				<button onClick="/loading" className="submitBtn" type="submit">Edit</button>
 			</form>
 		</div>
 	)

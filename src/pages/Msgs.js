@@ -4,19 +4,20 @@ import { Link } from "react-router-dom"
 
 const Msgs = () => {
 	const { user } = useContext(Context)
-	
+
 	return user? (
 		<div>
-			<h1>Check messages</h1>
-				<div>
+				<div className="msgs">
+					<h1>You have <p style={{color:"tomato"}}>{user.comments.length}</p> messages</h1>
 					{user.comments.map((ele, index)=>{
 						return(
 							<div className="infos">
-								<h4>From : {ele.owner}</h4>
+								<h4>From : {ele.owner}  {ele.createdAt}</h4>
 								<hr></hr>
 								<h3>{ele.context}</h3>
+								<br></br>
 								<Link to={`/search/${ele.ownerId}`}>
-								<button className="delete">Respond</button>
+								<button className="response">Respond</button>
 								</Link>
 								<Link to={`/msgs/${ele._id}`}>
 									<button className="delete">Delete</button>

@@ -27,24 +27,36 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 		<div className="container">
 			<div className="aboutUser">
 				<div className="aboutContainer">
+					<div>
 					<img src={oneUser.photo}></img>
-					<h1>{oneUser.name}</h1>
-					<p>From : {oneUser.from}</p>
-					<p>Native language:{oneUser.nativeLanguage}</p>
-					<p>language to learn:{oneUser.learnLanguage}</p>
-					<p>Hobby : {oneUser.hobby}</p>
+					<h1>{oneUser.name}</h1>	
+					</div>
+					<div className="infomation">
+						<h2>From : {oneUser.from}</h2>
+						<h2>Native language:{oneUser.nativeLanguage}</h2>
+						<h2>language to learn:{oneUser.learnLanguage}</h2>
+						<h2>Hobby : {oneUser.hobby}</h2>
+						<br></br>
+						<hr></hr>
+						<br></br>
+						<p>{oneUser.about}</p>
+					</div>
 				</div>
 				<br></br>
 				<hr></hr>
 				<div class="comment">
 					<form onSubmit={sendComment}>
+					<br></br>
 						<h3>Send message..</h3>
-						<label>Title</label>
+						<label></label>
 						<br></br>
 						<input required type="text" name="context" value={context}onChange={e=>setcontext(e.target.value)} />
 						<br></br>
 						<button type="submit" className="submitBtn">Send</button>
+						<br></br>
+						<a className="btn" href="/search">Back</a>
 					</form>
+						<br></br>
 					<hr></hr>
 				</div>
 				<br></br>
@@ -53,12 +65,28 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 			<div className="userInfos">
 				{oneUser.infos.map((ele)=>{
 					return(
-							<div className="infos card">
+							<div className="infos card info">
 									<h3>{ele.title}</h3>
 									<hr></hr>
 									<img src={ele.photo}></img>
 									<p>{ele.description}</p>
 							</div>
+					)
+				})}
+			</div>
+			<br></br>
+			<hr></hr>
+			<br></br>
+			<h3 style={{textAlign:"center"}}>Study Material for {oneUser.learnLanguage}</h3>
+			<div className="userInfos">
+				{oneUser.materials.map((ele, index)=>{
+					return(
+						<div className="infos card info">
+						<h3>{ele.title}</h3>
+									<hr></hr>
+									<img src={ele.photo}></img>
+									<p>{ele.description}</p>
+						</div>
 					)
 				})}
 			</div>

@@ -28,7 +28,7 @@ const UserDetailForChat = ({match : {params : {id}}}) => {
 					<Form.Item label="Context" name="context" rules={[{ required: true, message: "Plase input comment" }]}>
 						<input />
 					</Form.Item>
-					<button type="submit">Send</button>
+					<button className="btn" type="submit">Send</button>
 				</Form>
 			</div>
 			<button>

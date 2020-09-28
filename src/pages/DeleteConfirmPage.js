@@ -7,7 +7,7 @@ const DeleteConfirmPage = ({history, match : {params : {msgId}}}) => {
 	async function deleteOne(msgId){
 		const msg = await deleteComment(msgId)
 		console.log(msg)
-		history.push("/profile")
+		history.push("/loading")
 	}
 
 	useEffect(()=>{
@@ -22,7 +22,8 @@ const DeleteConfirmPage = ({history, match : {params : {msgId}}}) => {
 	return oneMsg ? (
 		<div className="confirm">
 			<h2>Are you sure to delete this message?</h2>
-			<button onClick={()=>{deleteOne(`${oneMsg._id}`)}}>Delete</button>
+			<br></br>
+			<button className="delete" onClick={()=>{deleteOne(`${oneMsg._id}`)}}>Delete</button>
 		</div>
 	):(
 		null

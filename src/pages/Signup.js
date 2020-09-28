@@ -2,7 +2,6 @@ import React from 'react'
 import { signup } from "../services"
 import { Form, Input} from "antd"
 
-
 const Signup = ({history}) => {
   const [form] = Form.useForm();
 
@@ -46,11 +45,12 @@ const Signup = ({history}) => {
               <option value="Bengali">Bengali</option>
               <option value="Russian">Russian</option>
               <option value="German">German</option>
+              <option value="Korean">Korean</option>
           </select>
         </Form.Item>
         <br></br>
         <Form.Item label="The language you want to learn" name="learnLanguage" rules={[{ required: true, message: "Please select the language you want to learn" }]}>
-          <select name="nativeLanguage">
+          <select name="learnLanguage">
               <option value="requires">Choose the language</option>
               <option value="English">English</option>
               <option value="Spanish">Spanish</option>
@@ -60,6 +60,7 @@ const Signup = ({history}) => {
               <option value="Italian">Italian</option>
               <option value="Russian">Russian</option>
               <option value="German">German</option>
+              <option value="Korean">Korean</option>
           </select>
         </Form.Item>
         <br></br>
@@ -71,7 +72,7 @@ const Signup = ({history}) => {
           <Input.Password />
         </Form.Item>
         <br></br>
-        <button className="submitBtn  " htmlType="submit">Signup</button>
+        <button className="submitBtn" htmlType="submit">Signup</button>
       </Form>
     </div>
   )

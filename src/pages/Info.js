@@ -14,7 +14,7 @@ const Info = ({history}) => {
 	async function createNewInfo(){
 		const newInfo = {title,photo,description}
 		createInfo(newInfo)
-		history.push("/profile")
+		history.push("/loading")
 	}
 
 	async function uploadPhoto({ target: { files } }) {
@@ -30,7 +30,7 @@ const Info = ({history}) => {
 
 
 	return (
-		<div className="info">
+		<div>	
 			<form onSubmit={createNewInfo}>	
 			<h1>Create new Info</h1>
 				<label>Title</label>
@@ -40,7 +40,7 @@ const Info = ({history}) => {
 				<br></br>
 				<br></br>
 				<label for="file_photo">
-				<input style={{display:"none"}} id="file_photo" required type="file" name="photo" onChange={uploadPhoto} />
+				<input style={{display:"none"}} id="file_photo" type="file" name="photo" onChange={uploadPhoto} />
 				photo 
 				</label>
 				<br></br>
@@ -50,12 +50,13 @@ const Info = ({history}) => {
 				<input required type="text" name="description" value={description}onChange={e=>setDescription(e.target.value)} />
 				<br></br>
 				<button className="submitBtn" type="submit">Create</button>
+				<a className="btn" href="/profile">Profile</a>
 			</form>
 			<div className="infoCards">
 				{user.infos.map((ele)=>{
 					return(
 						<div className="infos">
-							<h3>{ele.title}</h3>
+							<h2>{ele.title}</h2>
 							<hr></hr>
 							<img src={ele.photo}></img>
 							<p>{ele.description}</p>
