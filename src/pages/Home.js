@@ -10,11 +10,14 @@ function Home() {
         discover the world <br></br>
         in the smartest way.</h1>
         <br />
-          <Link className="signup btn" to="/signup">Signup</Link>
-          <br></br>  
-          <Link className="login btn" to="/login">Login</Link>
+        <div className="btns">
+          <Link className="btn" to="/signup">Signup</Link>
+          <Link className="btn" to="/login">Login</Link>
+        </div>
       </div>
+      <div className="homeImg">
         <img src="/main.png"></img>
+      </div>
     </div>
   );
 }

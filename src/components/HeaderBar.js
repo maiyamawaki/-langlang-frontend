@@ -1,6 +1,7 @@
 import React, {useEffect,useContext} from 'react'
 import { Context } from "../context"
 import {getCurrentUser, logoutP} from "../services/index"
+import {Link} from "react-router-dom"
 
 const HeaderBar = ({history}) => {
 	const { user, loginUser, logout } = useContext(Context)
@@ -23,8 +24,8 @@ const HeaderBar = ({history}) => {
 				<header>
 					<a href="/search"><h1>langlang</h1></a>	
 					<div className="links">
-					<p onClick={setLogout}><a href="/">Logout</a></p>
-					<p><a href="/profile">Profile</a></p>
+					<button onClick={setLogout}><a href="/">Logout</a></button>
+					<button><a href="/profile">Profile</a></button>
 					</div>
 				</header>
 			):

@@ -71,7 +71,7 @@ const Signup = ({history}) => {
           <Input.Password />
         </Form.Item>
         <br></br>
-        <button className="btn signup" htmlType="submit">Signup</button>
+        <button className="submitBtn  " htmlType="submit">Signup</button>
       </Form>
     </div>
   )

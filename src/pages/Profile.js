@@ -1,71 +1,46 @@
 import React, {useContext} from 'react'
 import { Context } from "../context"
 import { Link } from 'react-router-dom';
-import { deleteComment } from "../services"
-
 
 const Profile = ({history}) => {
 	const { user } = useContext(Context)
-
-	// async function deleteOne(messageId){
-	// 		alert("The messsage has been deleted.")
-	// 		// console.log(id)
-	// 		// let messageId = id
-	// 		// console.log(messageId)
-	// 		// await deleteComment(messageId)
-	// 		// history.push("/search")
-	// 		const deleteMsg = await deleteComment(messageId);
-	// 		console.log(deleteMsg);
-	// }
 	
 	return user ? (
-		<div className="container">
+		<div className="user">
 			<h1>Welcome {user?.name}</h1>
-			<img src={user?.photo} />
-			<br></br>
-			<br></br>
-			<div className="profileDetail">
-				<Link className="btn login" to="/profile/editprofile">Edit your profile</Link>
+			<div className="userContainer">
+				<div className="userFoto">
 				<br></br>
-				<div className="userInfo">
+				<img src={user?.photo} />
+				<br></br>
+				<br></br>
+				<Link className="btn submitBtn" to="/profile/editprofile">Edit your profile</Link>
+				</div>
+				<br></br>
+				<br></br>
+				<div className="userCard">
 					<p>From : {user?.from}</p>
 					<p>Living : {user?.living}</p>
 					<p>Native language : {user?.nativeLanguage}</p>
 					<p>Learning : {user?.learnLanguage}</p>
 					<p>Hobby : {user?.hobby}</p>
 					<br></br>
+					<hr style={{color : "#85d1ba"}}></hr>
+					<br></br>
 					<p>{user?.about}</p>
 				</div>
 
-				<Link className="btn login" to="/search">Search someone</Link>
-				<br></br>
-				<Link className="btn login" to="/profile/msgs">Check messsages</Link>
-				<br></br>
-				<Link className="btn login" to="/profile/info">Info</Link>
+				<div className="userBtns">
+					<Link className="optionBtn" to="/search">Search</Link>
+					<br></br>
+					<Link className="optionBtn" to="/profile/msgs">Messsage</Link>
+					<br></br>
+					<Link className="optionBtn" to="/profile/info">Infomation</Link>
+					<br></br>
+					<Link className="optionBtn" to="/profile/material">Material</Link>
+				</div>
 			</div>
 			<br></br>
-			{/* {user ? (
-				<div className="viewComments">
-					{user.comments.map((ele,index, arr)=>{
-						return(
-							<div key={index} className="comment">
-								<p>From : {ele.owner}</p>
-								<p>{ele.createdAt}</p>
-								<hr></hr>
-								<h4>{ele.context}</h4>
-								<Link to={`/search/${ele.ownerId}`}>
-								<button>Respond</button>
-								</Link>
-								<br></br>
-								<br></br>
-									<button onClick={()=>{deleteOne(`${ele._id}`)}}>Delete</button>
-							</div>
-						)
-					})}
-				</div>
-				):(
-					null
-				)} */}
 		</div>
 	):(
 		<div>

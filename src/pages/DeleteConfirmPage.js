@@ -20,7 +20,7 @@ const DeleteConfirmPage = ({history, match : {params : {msgId}}}) => {
 	},[])
 
 	return oneMsg ? (
-		<div>
+		<div className="confirm">
 			<h2>Are you sure to delete this message?</h2>
 			<button onClick={()=>{deleteOne(`${oneMsg._id}`)}}>Delete</button>
 		</div>

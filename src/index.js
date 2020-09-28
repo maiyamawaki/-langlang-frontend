@@ -9,7 +9,8 @@ import HeaderBar from "./components/HeaderBar"
 ReactDOM.render(
 <OurProvider>
 <HeaderBar />
-<Router />
+<Router>
+</Router>
 </OurProvider>,
 document.getElementById('root'));
 

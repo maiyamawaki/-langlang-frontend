@@ -1,19 +1,19 @@
-import React,{useState,useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import { Context } from "../context"
 import axios from "axios"
-import {createInfo} from "../services"
-import { Link } from "react-router-dom" 
+import {createMaterial} from "../services"
+import { Link } from "react-router-dom"
 
-const Info = ({history}) => {
+const Material = ({history}) => {
 	const { user } = useContext(Context)
 
 	const [title, setTitle] = useState("")
 	const [photo, setPhoto] = useState("")
 	const [description, setDescription] = useState("")
 
-	async function createNewInfo(){
-		const newInfo = {title,photo,description}
-		createInfo(newInfo)
+	async function createNewMaterial(){
+		const newMaterial = {title,photo,description}
+		createMaterial(newMaterial)
 		history.push("/profile")
 	}
 
@@ -28,11 +28,10 @@ const Info = ({history}) => {
 		setPhoto(secure_url)
 		}
 
-
-	return (
-		<div className="info">
-			<form onSubmit={createNewInfo}>	
-			<h1>Create new Info</h1>
+	return user ? (
+		<div>
+			<form onSubmit={createNewMaterial}>	
+				<h1>Create study material</h1>
 				<label>Title</label>
 				<br></br>
 				<input required type="text" name="title" value={title}onChange={e=>setTitle(e.target.value)} />
@@ -40,33 +39,32 @@ const Info = ({history}) => {
 				<br></br>
 				<br></br>
 				<label for="file_photo">
-				<input style={{display:"none"}} id="file_photo" required type="file" name="photo" onChange={uploadPhoto} />
-				photo 
+				<input style={{display:"none"}} type="file" id="file_photo" name="photo" onChange={uploadPhoto} />Photo
 				</label>
 				<br></br>
-				<br></br>
 				<label>Description</label>
+				<br></br>
 				<br></br>
 				<input required type="text" name="description" value={description}onChange={e=>setDescription(e.target.value)} />
 				<br></br>
 				<button className="submitBtn" type="submit">Create</button>
 			</form>
 			<div className="infoCards">
-				{user.infos.map((ele)=>{
+				{user.materials.map((ele)=>{
 					return(
 						<div className="infos">
 							<h3>{ele.title}</h3>
-							<hr></hr>
 							<img src={ele.photo}></img>
 							<p>{ele.description}</p>
-							<br></br>
-							<Link className="delete" to={`/info/${ele._id}`}>Delete</Link>
+							<Link className="delete" to={`/material/${ele._id}`}>Delete</Link>
 						</div>
 					)
 				})}
 			</div>
 		</div>
+	):(
+		null
 	)
 }
 
-export default Info
+export default Material

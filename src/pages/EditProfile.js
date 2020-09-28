@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react'
 import { Context } from "../context"
-import {Link} from "react-router-dom"
 import {getCurrentUser, updatePhoto, updateProfile} from "../services"
 import axios from "axios"
 
@@ -11,12 +10,9 @@ const EditProfile = ({history}) => {
 	const [hobby, sethobby] = useState("")
 	const [about, setabout] = useState("")
 	
-	console.log(user)
-
 	async function realizeUpdateProfile(){
 		const newPro = {learnLanguage, hobby, about}
 		await updateProfile(newPro)
-		console.log(newPro)
 		history.push("/profile")
 	}
 
@@ -36,8 +32,8 @@ const EditProfile = ({history}) => {
 	return (
 		<div className="updateProfile">
 				<h1>Edit profile</h1>
-				<input className="file" type='file' name='photo' id='photo' onChange={uploadPhoto} />
 			<form className="editForm" onSubmit={realizeUpdateProfile}>
+				<input className="file" type='file' name='photo' id='photo' onChange={uploadPhoto} />
 				<br></br>
 				<label>langueage</label>
 				<br></br>

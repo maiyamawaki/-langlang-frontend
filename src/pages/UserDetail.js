@@ -26,7 +26,7 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 	return oneUser ? (
 		<div className="container">
 			<div className="aboutUser">
-				<div>
+				<div className="aboutContainer">
 					<img src={oneUser.photo}></img>
 					<h1>{oneUser.name}</h1>
 					<p>From : {oneUser.from}</p>
@@ -34,17 +34,22 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 					<p>language to learn:{oneUser.learnLanguage}</p>
 					<p>Hobby : {oneUser.hobby}</p>
 				</div>
+				<br></br>
+				<hr></hr>
 				<div class="comment">
 					<form onSubmit={sendComment}>
-						<h2>Send message..</h2>
+						<h3>Send message..</h3>
 						<label>Title</label>
 						<br></br>
 						<input required type="text" name="context" value={context}onChange={e=>setcontext(e.target.value)} />
 						<br></br>
-						<button type="submit">Send</button>
+						<button type="submit" className="submitBtn">Send</button>
 					</form>
+					<hr></hr>
 				</div>
+				<br></br>
 			</div>
+				<h3 style={{textAlign:"center"}}>About {oneUser.from}</h3>
 			<div className="userInfos">
 				{oneUser.infos.map((ele)=>{
 					return(

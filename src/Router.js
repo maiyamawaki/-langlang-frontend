@@ -10,7 +10,11 @@ import UserDetail from "./pages/UserDetail"
 import DeleteConfirmPage from "./pages/DeleteConfirmPage"
 import Msgs from "./pages/Msgs"
 import Info from "./pages/Info"
+import DeleteInfo from "./pages/DeleteInfo"
+import Material from "./pages/Material"
+import DeleteMaterial from "./pages/DeleteMaterial"
 import NotFound from './components/404/NotFound.js';
+
 
 
 const Router = () => (
@@ -25,6 +29,9 @@ const Router = () => (
       <Route exact path="/profile/msgs" component={Msgs} />
       <Route exact path="/msgs/:msgId" component={DeleteConfirmPage} />
       <Route exact path="/profile/info" component={Info} />
+      <Route exact path="/info/:infoId" component={DeleteInfo} />
+      <Route exact path="/profile/material" component={Material} />
+      <Route exact path="/material/:materialId" component={DeleteMaterial} />
       <Route exact path="/search/:userId" component={UserDetail} />
       <Route component={NotFound} />
     </Switch>

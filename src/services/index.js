@@ -62,9 +62,29 @@ export const deleteComment = async(msgId)=>{
 export const getInfos =  async () => {
   return await service.get("/profile/info")
 }
-export const getOneInfo = async (infoId) => {
-  return await service.get(`/profile/info/${infoId}`)
-}
 export const createInfo =  async (newInfo) =>{
   return await service.post("/profile/info", newInfo)
+}
+export const getInfo = async(infoId)=>{
+  const {data : info }= await service.get(`/info/${infoId}`)
+  return info
+}
+export const deleteInfo = async(infoId)=>{
+  await service.delete(`/info/${infoId}`)
+}
+
+
+//Materials
+export const getMaterials = async()=>{
+  await service.get("/profile/material")
+}
+export const createMaterial = async (newMaterial) =>{
+  return await service.post("/profile/material", newMaterial)
+}
+export const getMaterial = async(materialId)=>{
+  const {data : material }= await service.get(`/material/${materialId}`)
+  return material
+}
+export const deleteMaterial = async(materialId)=>{
+  await service.delete(`/material/${materialId}`)
 }
