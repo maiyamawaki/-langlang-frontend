@@ -9,7 +9,8 @@ function Home() {
             <h1>
             Learn the language, <br></br>
             discover the world <br></br>
-            in the smartest way.</h1>
+            with <p>langlang</p><br></br>
+            </h1>
             <br />
             <div className="btns">
               <Link className="btn" to="/signup">Signup</Link>

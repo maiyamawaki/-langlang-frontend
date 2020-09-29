@@ -8,10 +8,11 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 	
 	async function sendComment (){
 		const newComment = {context}
-		const {data :{user}} = await getOneUser(userId)
-		await createComment(user._id, newComment)
+		const {data :{user}} =await getOneUser(userId)
+		createComment(user._id, newComment)
 		history.push("/loading")
 	}
+
 
 	useEffect(()=>{
 		async function fetchOneUser(){
@@ -20,7 +21,6 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 		}
 		fetchOneUser()
 	},[])
-
 
 	return oneUser ? (
 		<div className="container">
@@ -42,20 +42,18 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 					</div>
 				</div>
 				<br></br>
-				<hr></hr>
-				<div class="comment">
+				<div className="comment">
 					<form onSubmit={sendComment}>
 					<br></br>
 						<h3>Send message..</h3>
 						<label></label>
 						<br></br>
-						<input required type="text" name="context" value={context}onChange={e=>setcontext(e.target.value)} />
+						<input required type="text" name="context" value={context} onChange={e => setcontext(e.target.value)} />
 						<br></br>
-						<button type="submit" className="submitBtn"><a href="/loading">Send</a></button>
+						<button type="submit" className="submitBtn">Send</button>
 						<a className="btn submitBtn" href="/search">Back</a>
 					</form>
 						<br></br>
-					<hr></hr>
 				</div>
 				<br></br>
 			</div>
@@ -72,8 +70,7 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 					)
 				})}
 			</div>
-			<br></br>
-			<hr></hr>
+			<br></br>	
 			<br></br>
 			<h3 style={{textAlign:"center"}}>Study Material for {oneUser.learnLanguage}</h3>
 			<div className="userInfos">

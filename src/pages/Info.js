@@ -61,7 +61,7 @@ const Info = ({history}) => {
 							<img src={ele.photo}></img>
 							<p>{ele.description}</p>
 							<br></br>
-							<Link className="delete" to={`/info/${ele._id}`}>Edit</Link>
+							<Link className="delete" to={`/info/${ele._id}`}>Delete..</Link>
 						</div>
 					)
 				})}

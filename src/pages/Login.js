@@ -3,13 +3,6 @@ import { login } from "../services"
 import { Form, Input } from "antd"
 import { Context } from "../context"
 
-let baseURL;
-
-process.env.NODE_ENV === "production"
-  ? (baseURL = process.env.FRONTENDPOINT)
-  : (baseURL = "http://localhost:3000")
-
-
 const Login = ({history}) => {
 	const [form] = Form.useForm();
 	const { loginUser } = useContext(Context)

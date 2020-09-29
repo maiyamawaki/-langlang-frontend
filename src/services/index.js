@@ -46,6 +46,7 @@ export const getOneUser = async (userId) => {
 }
 
 
+
 //Comment 
 export const createComment = async(userId, comment)=>{
   await service.post(`/search/${userId}`, comment)
@@ -69,10 +70,6 @@ export const getInfo = async(infoId)=>{
   const {data : info }= await service.get(`/info/${infoId}`)
   return info
 }
-export const updateInfo = async(infoId)=>{
-  const updatedInfo = await service.put(`/info/${infoId}`)
-  return updatedInfo
-}
 export const deleteInfo = async(infoId)=>{
   await service.delete(`/info/${infoId}`)
 }
@@ -92,3 +89,5 @@ export const getMaterial = async(materialId)=>{
 export const deleteMaterial = async(materialId)=>{
   await service.delete(`/material/${materialId}`)
 }
+
+

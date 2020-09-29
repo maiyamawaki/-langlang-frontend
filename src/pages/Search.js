@@ -41,7 +41,7 @@ const Search = () => {
 		<br></br>
 				<form class="searchBar" onSubmit={searchOneUer}>
 					<label for="oneUser"><h1>
-					Search someone by Keyword
+					Search someone by country name o language
 					</h1></label>
 					<input type="text" name="keyword" value={keyword} onChange={e=>setkeyword(e.target.value)} />
 					<button className="submitBtn" type="submit">Search</button>
