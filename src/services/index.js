@@ -2,7 +2,7 @@ import axios from 'axios';
 let baseURL;
 
 process.env.NODE_ENV === 'production'
-  ? (baseURL = process.env.FRONTENDPOINT)
+  ? (baseURL = "https://git.heroku.com/sleepy-bayou-28569.git")
   : (baseURL = 'http://localhost:3000');
 
 const service = axios.create({ withCredentials: true, baseURL });
