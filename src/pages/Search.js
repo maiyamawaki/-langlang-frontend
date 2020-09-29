@@ -6,18 +6,22 @@ import { Context } from "../context"
 const Search = () => {
 	const [users, setUsers] = useState(null);
 	const { user, loginUser } = useContext(Context)
-	const { lang, setOneLang } = useState("")
+	const [ keyword, setkeyword ] = useState("")
+	const [ arr, setArr ] = useState([])
 
 	function searchOneUer(e){
 		e.preventDefault();
 		[...users].forEach((ele)=>{
-			if(ele.nativeLanguage === lang){
-				console.log(ele)
-				setOneLang([...lang, ele])
+			if(ele.living === keyword){
+				setArr([...arr, ele])
+				setkeyword("")
+			}else if(ele.nativeLanguage === keyword){
+				setArr([...arr, ele])
+				setkeyword("")
 			}
 		})
 	}
-	console.log(lang)
+	console.log(arr)
 
 	useEffect(()=>{
 		async function fetchUsers(){
@@ -35,13 +39,39 @@ const Search = () => {
 		<br></br>
 		<br></br>
 		<br></br>
-				{/* <form class="searchBar" onSubmit={()=>{searchOneUer(lang)}}>
+				<form class="searchBar" onSubmit={searchOneUer}>
 					<label for="oneUser"><h1>
-					Search someone by oneUser
+					Search someone by Keyword
 					</h1></label>
-					<input type="text" name="lang" value={lang} onChange={e=>setOneLang(e.target.value)} />
-					<button className="btn	" type="submit">Search</button>
-				</form> */}
+					<input type="text" name="keyword" value={keyword} onChange={e=>setkeyword(e.target.value)} />
+					<button className="submitBtn" type="submit">Search</button>
+						{arr.map((ele)=>{
+							return(
+								<Link to={`/search/${ele._id}`}>
+								<div className="userCard">
+									<div className="flex" key={ele._id}>
+										<div>
+											<img src={ele.photo}></img>
+										</div>
+										<div className="userDetail">
+											<h2>{ele.name}</h2>
+											<br></br>
+											<p>From : {ele.from}</p>
+											<p>Native language:{ele.nativeLanguage}</p>
+											<p>Learning : {ele.learnLanguage}</p>
+											<p>hobby : {ele.hobby}</p>
+											<br></br>
+											<hr></hr>
+											<br></br>
+											<p>{ele.about}</p>
+											<br></br>
+										</div>
+									</div>
+									</div>
+								</Link>
+							)
+						})}
+				</form>
 			<div className="cards">
 			<br></br>
 			<br></br>
@@ -56,6 +86,7 @@ const Search = () => {
 										</div>
 										<div className="userDetail">
 											<h2>{ele.name}</h2>
+											<br></br>
 											<p>From : {ele.from}</p>
 											<p>Native language:{ele.nativeLanguage}</p>
 											<p>Learning : {ele.learnLanguage}</p>

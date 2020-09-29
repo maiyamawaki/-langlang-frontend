@@ -50,7 +50,7 @@ const Info = ({history}) => {
 				<input required type="text" name="description" value={description}onChange={e=>setDescription(e.target.value)} />
 				<br></br>
 				<button className="submitBtn" type="submit">Create</button>
-				<a className="btn" href="/profile">Profile</a>
+				<a className="btn submitBtn" href="/profile">Profile</a>
 			</form>
 			<div className="infoCards">
 				{user.infos.map((ele)=>{
@@ -61,7 +61,7 @@ const Info = ({history}) => {
 							<img src={ele.photo}></img>
 							<p>{ele.description}</p>
 							<br></br>
-							<Link className="delete" to={`/info/${ele._id}`}>Delete</Link>
+							<Link className="delete" to={`/info/${ele._id}`}>Edit</Link>
 						</div>
 					)
 				})}

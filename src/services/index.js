@@ -69,6 +69,10 @@ export const getInfo = async(infoId)=>{
   const {data : info }= await service.get(`/info/${infoId}`)
   return info
 }
+export const updateInfo = async(infoId)=>{
+  const updatedInfo = await service.put(`/info/${infoId}`)
+  return updatedInfo
+}
 export const deleteInfo = async(infoId)=>{
   await service.delete(`/info/${infoId}`)
 }

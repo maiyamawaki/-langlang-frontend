@@ -49,7 +49,7 @@ const Material = ({history}) => {
 				<br></br>
 				<button className="submitBtn" type="submit">Create</button>
 				<br></br>
-				<a className="btn" href="/profile">Profile</a>
+				<a className="btn submitBtn" href="/profile">Profile</a>
 			</form>
 			<div className="infoCards">
 				{user.materials.map((ele)=>{

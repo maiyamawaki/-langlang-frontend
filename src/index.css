@@ -286,7 +286,7 @@ header h1{
   margin: 30px 0;
 }
 
-.userCard{
+.user .userCard{
   background-color: white;
   color:rgb(161, 161, 161);
   width: 300px;
@@ -307,7 +307,7 @@ header h1{
   .userFoto{
     width: 50%;
   }
-  .userCard{
+  .user   .userCard{
     width: 40%;
     height: 300px;
     margin-top: 100px;
@@ -372,6 +372,8 @@ header h1{
     display: flex;
     justify-content: center;
     flex-wrap:wrap;
+    width: 90%;
+    margin: 0 auto;
   }
   .infos{
     width: 30%;
@@ -379,9 +381,9 @@ header h1{
   }
   .infos img{
     display: block;
-    width: 300px;
+    width: 220px;
     border-radius: 10px;
-    margin: 10px auto;
+    margin: 15px auto;
   }
 }
 
@@ -392,6 +394,39 @@ header h1{
   margin: 10px auto;
   padding: 20px;
   border-radius: 10px;
+  transition: transform 0.2s linear;
+  color:rgb(161, 161, 161)
+}
+
+.card:hover{
+  transform: scale(1.05)
+}
+
+.search h1{
+  margin-top: 0;
+}
+
+.searchBar{
+    width: 90%;
+    margin: 0 5%;
+}
+
+.search .userCard{
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.2 s linear;
+  color:rgb(161, 161, 161);
+}
+
+.search .userCard:hover{
+  transform: scale(1.05)
+}
+
+.search .userCard .userDetail{
+  text-align: left;
 }
 
 .search img{
@@ -404,28 +439,34 @@ header h1{
   display: flex;
 }
 
-.userDetail{
+.search .userDetail{
   margin:0 0 0 40px;
-  color: #85d1ba;
+  color: rgb(161, 161, 161); 
 }
 
 @media (min-width: 768px) {
   .searchBar{
-    width: 30% ;
+    width: 40% ;
   }
+
   .cards{
-    width: 70%;
+    width: 50%;
   }
 
-  .card{
-    margin-left:30%;
+  .search h1{
+    margin-top: 30px;
   }
-
+  
   .search{
     width: 80%;
     margin: 10px auto;
     display: flex;
     justify-content: space-between;
+  }
+
+  .search .userCard{
+    height: 270px;
+    padding: 20px;
   }
 }
 
@@ -464,9 +505,9 @@ header h1{
   background-color: white;
   border-radius: 10px;
   color:rgb(161, 161, 161);
-  
   padding: 20px 0;
 }
+
 
 @media (min-width: 768px) {
   .card{
@@ -484,6 +525,12 @@ header h1{
   .infomation{
     width: 40%;
     margin: 50px 0 0 0 ;
+  }
+  .comment a{
+    color:#85d1ba;
+  }
+  .comment a:hover{
+    color:white;
   }
 }
 

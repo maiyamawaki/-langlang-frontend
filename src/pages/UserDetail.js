@@ -7,11 +7,10 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 	const [context, setcontext] = useState("")
 	
 	async function sendComment (){
-		alert("The message has been sent")
 		const newComment = {context}
 		const {data :{user}} = await getOneUser(userId)
 		await createComment(user._id, newComment)
-		setcontext("")
+		history.push("/loading")
 	}
 
 	useEffect(()=>{
@@ -52,9 +51,8 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 						<br></br>
 						<input required type="text" name="context" value={context}onChange={e=>setcontext(e.target.value)} />
 						<br></br>
-						<button type="submit" className="submitBtn">Send</button>
-						<br></br>
-						<a className="btn" href="/search">Back</a>
+						<button type="submit" className="submitBtn"><a href="/loading">Send</a></button>
+						<a className="btn submitBtn" href="/search">Back</a>
 					</form>
 						<br></br>
 					<hr></hr>
