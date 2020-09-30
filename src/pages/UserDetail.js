@@ -1,15 +1,16 @@
 import React,{useEffect, useState} from 'react'
 import { getOneUser, createComment} from "../services"
-
-
-const UserDetail = ({history, match : {params : {userId}}}) => {
+import { useHistory, Link } from "react-router-dom"
+ 
+const UserDetail = ({match : {params : {userId}}}) => {
 	const [oneUser, setOneUser] = useState(null)
 	const [context, setcontext] = useState("")
-	
-	async function sendComment (){
-		const newComment = {context}
-		const {data :{user}} =await getOneUser(userId)
-		createComment(user._id, newComment)
+	const history = useHistory()
+
+	async function sendComment (e){
+		e.preventDefault()
+		const comment = {context}
+		await createComment(userId, comment)
 		history.push("/loading")
 	}
 
@@ -48,10 +49,10 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 						<h3>Send message..</h3>
 						<label></label>
 						<br></br>
-						<input required type="text" name="context" value={context} onChange={e => setcontext(e.target.value)} />
+						<input required type="text" name="context" onChange={e => setcontext(e.target.value)} />
 						<br></br>
 						<button type="submit" className="submitBtn">Send</button>
-						<a className="btn submitBtn" href="/search">Back</a>
+						<Link className="btn submitBtn" to="/search">Back</Link>
 					</form>
 						<br></br>
 				</div>
@@ -87,7 +88,7 @@ const UserDetail = ({history, match : {params : {userId}}}) => {
 			</div>
 		</div>
 	):(
-		<h1>... espera</h1>
+		<h1>... Wait</h1>
 	)
 }
 

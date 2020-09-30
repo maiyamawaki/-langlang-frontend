@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import {deleteComment, getMsg} from "../services"
+import { useHistory } from "react-router-dom"
 
-const DeleteConfirmPage = ({history, match : {params : {msgId}}}) => {
+const DeleteConfirmPage = ({ match : {params : {msgId}}}) => {
 	const [oneMsg, setOneMsg] = useState(null)
+	const history = useHistory()
 
-	async function deleteOne(msgId){
-		const msg = await deleteComment(msgId)
-		console.log(msg)
+	async function deleteOne(e){
+		e.preventDefault()
+		const msgDelete = await deleteComment(msgId)
+		console.log(msgDelete)
 		history.push("/loading")
 	}
 
@@ -17,13 +20,13 @@ const DeleteConfirmPage = ({history, match : {params : {msgId}}}) => {
 		}
 		fetchOneMsg()
 		console.log(oneMsg)
-	},[])
+	},[msgId, oneMsg])
 
 	return oneMsg ? (
 		<div className="confirm">
 			<h2>Are you sure to delete this message?</h2>
 			<br></br>
-			<button className="delete" onClick={()=>{deleteOne(`${oneMsg._id}`)}}>Delete</button>
+			<button className="delete" onClick={deleteOne}>Delete</button>
 		</div>
 	):(
 		null

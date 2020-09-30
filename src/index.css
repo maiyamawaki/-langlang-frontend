@@ -12,6 +12,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+img{
+  object-fit: cover;
+}
+
 /*global*/
 *{
   margin:0;
@@ -286,7 +290,6 @@ header h1{
   width: 300px;
   height:300px;
   border-radius: 50%;
-  object-fit: cover;
 }
 
 .user h1{
@@ -523,6 +526,10 @@ header h1{
 
 .comment .btn{
   margin-top:0;
+}
+
+.card img{
+
 }
 
 @media (min-width: 768px) {

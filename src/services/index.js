@@ -2,7 +2,7 @@ import axios from 'axios';
 let baseURL;
 
 process.env.NODE_ENV === 'production'
-  ? (baseURL = "https://git.heroku.com/sleepy-bayou-28569.git")
+  ? (baseURL = "https://sleepy-bayou-28569.herokuapp.com")
   : (baseURL = 'http://localhost:3000');
 
 const service = axios.create({ withCredentials: true, baseURL });
@@ -49,14 +49,14 @@ export const getOneUser = async (userId) => {
 
 //Comment 
 export const createComment = async(userId, comment)=>{
-  await service.post(`/search/${userId}`, comment)
+  await service.post(`/message/${userId}`, comment)
 }
 export const getMsg = async(msgId)=>{
   const {data : msg}= await service.get(`/msgs/${msgId}`)
   return msg
 }
 export const deleteComment = async(msgId)=>{
-  await service.delete(`/msgs/${msgId}`)
+  await service.delete(`/deletemsg/${msgId}`)
 }
 
 //Info
@@ -64,7 +64,7 @@ export const getInfos =  async () => {
   return await service.get("/profile/info")
 }
 export const createInfo =  async (newInfo) =>{
-  return await service.post("/profile/info", newInfo)
+  return await service.post("/createinfo/info", newInfo)
 }
 export const getInfo = async(infoId)=>{
   const {data : info }= await service.get(`/info/${infoId}`)

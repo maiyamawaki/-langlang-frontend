@@ -3,15 +3,18 @@ import { Context } from "../context"
 import axios from "axios"
 import {createInfo} from "../services"
 import { Link } from "react-router-dom" 
+import { useHistory } from "react-router-dom"
 
-const Info = ({history}) => {
+const Info = () => {
 	const { user } = useContext(Context)
+	const history =  useHistory()
 
 	const [title, setTitle] = useState("")
 	const [photo, setPhoto] = useState("")
 	const [description, setDescription] = useState("")
 
-	async function createNewInfo(){
+	function createNewInfo(e){
+		e.preventDefault()
 		const newInfo = {title,photo,description}
 		createInfo(newInfo)
 		history.push("/loading")
