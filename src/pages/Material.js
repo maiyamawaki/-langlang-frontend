@@ -2,7 +2,6 @@ import React,{useContext, useState} from 'react'
 import { Context } from "../context"
 import axios from "axios"
 import {createMaterial} from "../services"
-import { Link } from "react-router-dom"
 
 const Material = ({history}) => {
 	const { user } = useContext(Context)
@@ -31,7 +30,7 @@ const Material = ({history}) => {
 	return user ? (
 		<div>
 			<form onSubmit={createNewMaterial}>	
-				<h1>Create study material</h1>
+				<h1>Create new study material</h1>
 				<label>Title</label>
 				<br></br>
 				<input required type="text" name="title" value={title}onChange={e=>setTitle(e.target.value)} />
@@ -44,12 +43,11 @@ const Material = ({history}) => {
 				<br></br>
 				<label>Description</label>
 				<br></br>
-				<br></br>
 				<input required type="text" name="description" value={description}onChange={e=>setDescription(e.target.value)} />
 				<br></br>
 				<button className="submitBtn" type="submit">Create</button>
 				<br></br>
-				<a className="btn submitBtn" href="/profile">Profile</a>
+				<a className="submitBtn profileBtn" href="/profile">Profile</a>
 			</form>
 			<div className="infoCards">
 				{user.materials.map((ele)=>{
@@ -59,7 +57,7 @@ const Material = ({history}) => {
 							<img src={ele.photo}></img>
 							<p>{ele.description}</p>
 							<br></br>
-							<Link className="delete" to={`/material/${ele._id}`}>Delete</Link>
+							<a className="delete" href={`/material/${ele._id}`}>Delete</a>
 						</div>
 					)
 				})}

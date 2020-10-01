@@ -4,24 +4,28 @@ import { Link } from 'react-router-dom';
 import { Context } from "../context"
 
 const Search = () => {
-	const [users, setUsers] = useState(null);
+	const [ users, setUsers] = useState(null);
 	const { user, loginUser } = useContext(Context)
 	const [ keyword, setkeyword ] = useState("")
-	const [ arr, setArr ] = useState([])
+	const [ result, setResult ] = useState("")
 
 	function searchOneUer(e){
 		e.preventDefault();
 		[...users].forEach((ele)=>{
-			if(ele.living === keyword){
-				setArr([...arr, ele])
+			if(ele.nativeLanguage === keyword){
+				setResult(ele)
 				setkeyword("")
-			}else if(ele.nativeLanguage === keyword){
-				setArr([...arr, ele])
+			}
+			if(ele.living === keyword){
+				setResult(ele)
+				setkeyword("")
+			}
+			if(ele.from === keyword){
+				setResult(ele)
 				setkeyword("")
 			}
 		})
 	}
-	console.log(arr)
 
 	useEffect(()=>{
 		async function fetchUsers(){
@@ -35,42 +39,39 @@ const Search = () => {
 	},[])
 
 	return users? (
-		<div class="search">
+		<div className="search">
 		<br></br>
 		<br></br>
 		<br></br>
-				<form class="searchBar" onSubmit={searchOneUer}>
-					<label for="oneUser"><h1>
+				<form className="searchBar" onSubmit={searchOneUer}>
+					<label>
+					<h1>
 					Search someone by country name o language
-					</h1></label>
+					</h1>
+					</label>
 					<input type="text" name="keyword" value={keyword} onChange={e=>setkeyword(e.target.value)} />
 					<button className="submitBtn" type="submit">Search</button>
-						{arr.map((ele)=>{
-							return(
-								<Link to={`/search/${ele._id}`}>
-								<div className="userCard">
-									<div className="flex" key={ele._id}>
+				  {result ? (<Link to={`/search/${result._id}`}>
+							<dvi className="cards">
+								<div className="card">
+									<div className="flex" key={result._id}>
 										<div>
-											<img src={ele.photo}></img>
+											<img src={result.photo}></img>
 										</div>
 										<div className="userDetail">
-											<h2>{ele.name}</h2>
+											<h2>{result.name}</h2>
 											<br></br>
-											<p>From : {ele.from}</p>
-											<p>Native language:{ele.nativeLanguage}</p>
-											<p>Learning : {ele.learnLanguage}</p>
-											<p>hobby : {ele.hobby}</p>
-											<br></br>
-											<hr></hr>
-											<br></br>
-											<p>{ele.about}</p>
-											<br></br>
+											<p>From : {result.from}</p>
+											<p>Native language:{result.nativeLanguage}</p>
+											<p>Learning : {result.learnLanguage}</p>
 										</div>
 									</div>
-									</div>
-								</Link>
-							)
-						})}
+								</div>
+							</dvi>
+								</Link>):
+								(
+									null
+								)}
 				</form>
 			<div className="cards">
 			<br></br>
@@ -78,7 +79,7 @@ const Search = () => {
 				{users.map((ele, index)=>{
 					if(ele.email !== user.email){
 						return(
-							<div className="card">
+							<div key={ele._id} className="card">
 								<Link to={`/search/${ele._id}`}>
 									<div className="flex" key={ele._id}>
 										<div>

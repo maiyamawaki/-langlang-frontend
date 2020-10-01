@@ -4,6 +4,7 @@ export const Context = createContext()
 
 export default function OurProvider ({children}) {
     const [user, setuser] = useState(null)
+    const [userProfile, setUserProfile] = useState(null)
 
     async function getSession () {
         const {user} = await getCurrentUser()
@@ -11,9 +12,15 @@ export default function OurProvider ({children}) {
                         loginUser(user)
                 }
     }
+
+    async function getupdatedUser(){
+        const {user} = await getCurrentUser();
+        setUserProfile(user)
+    }
 				
     useEffect(() => {
         getSession()
+        getupdatedUser()
     }, [])
 
     function loginUser (user) {
@@ -29,7 +36,8 @@ export default function OurProvider ({children}) {
         value={{
             user,
             loginUser,
-            logout
+            logout,
+            userProfile,
         }}>
             {children}
         </Context.Provider>

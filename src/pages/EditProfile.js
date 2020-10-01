@@ -5,14 +5,16 @@ import axios from "axios"
 
 
 const EditProfile = ({history}) => {
-	const { user, loginUser } = useContext(Context)
+	const { user, loginUser, setUser } = useContext(Context)
 	const [learnLanguage, setlearnLanguage] = useState("")
 	const [hobby, sethobby] = useState("")
 	const [about, setabout] = useState("")
 	
-	async function realizeUpdateProfile(){
+	async function realizeUpdateProfile(e){
+		e.preventDefault()
 		const newPro = {learnLanguage, hobby, about}
 		await updateProfile(newPro)
+		console.log(newPro)
 		history.push("/loading")
 	}
 
@@ -38,17 +40,17 @@ const EditProfile = ({history}) => {
 				photo 
 				</label>
 				<br></br>
-				<label>langueage</label>
+				<label>Learing ..</label>
 				<br></br>
 				<input required type="text" name="learnLanguage" value={learnLanguage}onChange={e=>setlearnLanguage(e.target.value)} />
 				<br></br>
 				<br></br>
-				<label>Hobby</label>
+				<label>Your hobby</label>
 				<br></br>
 				<input required type="text" name="hobby" value={hobby}onChange={e=>sethobby(e.target.value)} />
 				<br></br>
 				<br></br>
-				<label>About</label>
+				<label>About you</label>
 				<br></br>
 				<input required type="text" name="about" value={about}onChange={e=>setabout(e.target.value)} />
 				<br></br>

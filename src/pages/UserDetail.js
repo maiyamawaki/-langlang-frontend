@@ -1,6 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import { getOneUser, createComment} from "../services"
 import { useHistory, Link } from "react-router-dom"
+
  
 const UserDetail = ({match : {params : {userId}}}) => {
 	const [oneUser, setOneUser] = useState(null)
@@ -13,7 +14,6 @@ const UserDetail = ({match : {params : {userId}}}) => {
 		await createComment(userId, comment)
 		history.push("/loading")
 	}
-
 
 	useEffect(()=>{
 		async function fetchOneUser(){
@@ -52,17 +52,17 @@ const UserDetail = ({match : {params : {userId}}}) => {
 						<input required type="text" name="context" onChange={e => setcontext(e.target.value)} />
 						<br></br>
 						<button type="submit" className="submitBtn">Send</button>
-						<Link className="btn submitBtn" to="/search">Back</Link>
+						<Link className="profileBtn submitBtn" to="/search">Back</Link>
 					</form>
 						<br></br>
 				</div>
 				<br></br>
 			</div>
-				<h3 style={{textAlign:"center"}}>About {oneUser.from}</h3>
+				<h3 style={{textAlign:"center"}}>About {oneUser.from} and {oneUser.living}</h3>
 			<div className="userInfos">
 				{oneUser.infos.map((ele)=>{
 					return(
-							<div className="infos card info">
+							<div key={ele._id} className="infos card info">
 									<h3>{ele.title}</h3>
 									<hr></hr>
 									<img src={ele.photo}></img>

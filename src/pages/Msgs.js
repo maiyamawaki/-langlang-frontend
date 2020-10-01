@@ -1,18 +1,14 @@
-import React,{useContext, useState, useEffect} from 'react'
+import React,{useContext, useEffect} from 'react'
 import { Context } from "../context"
 import { Link } from "react-router-dom"
-import { getOneUser } from "../services"
+import { getCurrentUser } from "../services"
 
 const Msgs = () => {
 	const { user } = useContext(Context)
-	const [photo, setPhoto] = useState("")
-
-	// async function getPhoto(id){
-	// 	const use = await getOneUser(id);
-	// 	setPhoto(use.photo)
-	// }
-
-
+	
+	useEffect(()=>{
+		getCurrentUser()
+	})
 
 	return user? (
 		<div>
@@ -24,7 +20,6 @@ const Msgs = () => {
 								<h4>From : {ele.owner}</h4>
 								<p>{ele.createdAt}</p>
 								<hr></hr>
-								<p>{ele.ownerId.photo}</p>
 								<h3>{ele.context}</h3>
 								<br></br>
 								<Link to={`/search/${ele.ownerId}`}>

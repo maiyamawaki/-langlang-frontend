@@ -17,7 +17,6 @@ import Loading from "./pages/Loading"
 import NotFound from './components/404/NotFound.js';
 
 
-
 const Router = () => (
   <BrowserRouter>
     <Switch>

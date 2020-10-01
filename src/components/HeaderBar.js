@@ -1,9 +1,9 @@
 import React, {useEffect,useContext} from 'react'
 import { Context } from "../context"
 import {getCurrentUser, logoutP} from "../services/index"
-import {Link} from "react-router-dom"
 
-const HeaderBar = ({history}) => {
+
+const HeaderBar = ({}) => {
 	const { user, loginUser, logout } = useContext(Context)
 
 	async function checkAuth(){
@@ -31,7 +31,7 @@ const HeaderBar = ({history}) => {
 			):
 			(
 				<header>
-						<a href="/"><h1>langlang</h1></a>	
+						<a href="/home"><h1>langlang</h1></a>	
 						<div className="links">
 						<p><a href="/signup">Signup</a></p>
 						<p><a href="/login">Login</a></p>

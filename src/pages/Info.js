@@ -2,7 +2,6 @@ import React,{useState,useContext} from 'react'
 import { Context } from "../context"
 import axios from "axios"
 import {createInfo} from "../services"
-import { Link } from "react-router-dom" 
 import { useHistory } from "react-router-dom"
 
 const Info = () => {
@@ -17,6 +16,7 @@ const Info = () => {
 		e.preventDefault()
 		const newInfo = {title,photo,description}
 		createInfo(newInfo)
+		console.log(newInfo)
 		history.push("/loading")
 	}
 
@@ -35,7 +35,7 @@ const Info = () => {
 	return (
 		<div>	
 			<form onSubmit={createNewInfo}>	
-			<h1>Create new Info</h1>
+			<h1>Create new Information about {user.from} or {user.living}</h1>
 				<label>Title</label>
 				<br></br>
 				<input required type="text" name="title" value={title}onChange={e=>setTitle(e.target.value)} />
@@ -47,13 +47,12 @@ const Info = () => {
 				photo 
 				</label>
 				<br></br>
-				<br></br>
 				<label>Description</label>
 				<br></br>
 				<input required type="text" name="description" value={description}onChange={e=>setDescription(e.target.value)} />
 				<br></br>
 				<button className="submitBtn" type="submit">Create</button>
-				<a className="btn submitBtn" href="/profile">Profile</a>
+				<a className="submitBtn profileBtn" href="/profile">Profile</a>
 			</form>
 			<div className="infoCards">
 				{user.infos.map((ele)=>{
@@ -61,10 +60,10 @@ const Info = () => {
 						<div className="infos">
 							<h2>{ele.title}</h2>
 							<hr></hr>
-							<img src={ele.photo}></img>
+							<img alt="" src={ele.photo}></img>
 							<p>{ele.description}</p>
 							<br></br>
-							<Link className="delete" to={`/info/${ele._id}`}>Delete..</Link>
+							<a className="delete" href={`/info/${ele._id}`}>Delete..</a>
 						</div>
 					)
 				})}

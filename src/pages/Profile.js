@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import { Context } from "../context"
 import { Link } from 'react-router-dom';
 
-const Profile = ({history}) => {
+const Profile = () => {
 	const { user } = useContext(Context)
 	
 	return user ? (

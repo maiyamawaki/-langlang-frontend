@@ -25,6 +25,7 @@ const DeleteMaterial = ({match : {params : {materialId}}}) => {
 		<div className="confirm">
 			<h2>Are you sure to delete this study material?</h2>
 			<button className="delete" onClick={deleteOneMaterial}>Delete</button>
+			<a className="backBtn" href="/profile">Back</a>
 		</div>
 	):(
 		null

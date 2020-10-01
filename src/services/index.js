@@ -2,7 +2,7 @@ import axios from 'axios';
 let baseURL;
 
 process.env.NODE_ENV === 'production'
-  ? (baseURL = "https://sleepy-bayou-28569.herokuapp.com")
+  ? (baseURL = "https://ironlanglang.herokuapp.com")
   : (baseURL = 'http://localhost:3000');
 
 const service = axios.create({ withCredentials: true, baseURL });
@@ -21,7 +21,7 @@ export const logOut = async () => {
   return await service.get("/logout")
 }
 export const getCurrentUser = async () => {
-  const {data:user} = await service.get("/profile")
+  const {data:user} = await service.get("/getprofile")
   return user
 }
 export const logoutP = async () => {
@@ -49,14 +49,14 @@ export const getOneUser = async (userId) => {
 
 //Comment 
 export const createComment = async(userId, comment)=>{
-  await service.post(`/message/${userId}`, comment)
+  await service.post(`/search/${userId}`, comment)
 }
 export const getMsg = async(msgId)=>{
   const {data : msg}= await service.get(`/msgs/${msgId}`)
   return msg
 }
 export const deleteComment = async(msgId)=>{
-  await service.delete(`/deletemsg/${msgId}`)
+  await service.delete(`/msgs/${msgId}`)
 }
 
 //Info
@@ -64,14 +64,14 @@ export const getInfos =  async () => {
   return await service.get("/profile/info")
 }
 export const createInfo =  async (newInfo) =>{
-  return await service.post("/createinfo/info", newInfo)
+  return await service.post("/profile/info", newInfo)
 }
 export const getInfo = async(infoId)=>{
   const {data : info }= await service.get(`/info/${infoId}`)
   return info
 }
 export const deleteInfo = async(infoId)=>{
-  await service.delete(`/info/${infoId}`)
+  return await service.delete(`/info/${infoId}`)
 }
 
 
@@ -87,7 +87,7 @@ export const getMaterial = async(materialId)=>{
   return material
 }
 export const deleteMaterial = async(materialId)=>{
-  await service.delete(`/material/${materialId}`)
+  return await service.delete(`/material/${materialId}`)
 }
 
 

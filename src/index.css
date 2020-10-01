@@ -117,6 +117,9 @@ button{
     width: 300px;
     margin: 30px auto;
   }
+  .profileBtn{
+    margin-top: 0;
+  }
 }
 
 .btn:hover{
@@ -308,6 +311,8 @@ header h1{
   font-weight: 700;
 }
 
+
+
 @media (min-width: 768px) {
   .userContainer{
     display: flex;
@@ -334,7 +339,7 @@ header h1{
   background-color: white;
   border-radius: 10px;
   color:rgb(161, 161, 161);
-  padding:40px;
+  padding:20px;
 }
 
 .infos p{
@@ -344,7 +349,7 @@ header h1{
 
 .infos img{
   display: block;
-  width: 220px;
+  width: 150px;
   height:220px;
   border-radius: 10px;
   margin: 5px auto;
@@ -487,6 +492,10 @@ header h1{
   margin: 50px auto;
 }
 
+.card{
+  text-align: left;
+}
+
 .container h3{
   border-bottom: 1px solid white;
   display: inline-block;
@@ -528,10 +537,6 @@ header h1{
   margin-top:0;
 }
 
-.card img{
-
-}
-
 @media (min-width: 768px) {
   .card{
     width: 100%;
@@ -541,7 +546,7 @@ header h1{
   }
   .aboutContainer{
     display: flex;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     justify-content: space-around;
   }
@@ -589,8 +594,5 @@ header h1{
   margin: 10px 0;
 }
 
-.infos img{
-  border-radius: 50%;
-}
 
-/*bg*/
+

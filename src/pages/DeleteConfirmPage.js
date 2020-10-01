@@ -27,6 +27,7 @@ const DeleteConfirmPage = ({ match : {params : {msgId}}}) => {
 			<h2>Are you sure to delete this message?</h2>
 			<br></br>
 			<button className="delete" onClick={deleteOne}>Delete</button>
+			<a className="backBtn" href="/profile">Back</a>
 		</div>
 	):(
 		null
